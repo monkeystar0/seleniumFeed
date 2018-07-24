@@ -11,17 +11,8 @@ import com.google.firebase.database.*;
 import jupeter.sele.model.BlognonInfo;
 import jupeter.sele.task.BlognoneTask;
 import jupeter.sele.task.TidproTask;
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class App {
@@ -44,20 +35,6 @@ public class App {
         // As an admin, the app has access to read and write all data, regardless of Security Rules
         DatabaseReference ref = FirebaseDatabase.getInstance()
                 .getReference("test_access");
-//        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                Object document = dataSnapshot.getValue();
-//                System.out.println(document);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError error) {
-//            }
-//        });
-
-
-
 
         System.setProperty("webdriver.chrome.driver", "/Users/quantumbreak/etc/chromedriver");
 
@@ -71,6 +48,15 @@ public class App {
         TidproTask tidproTask = new TidproTask();
         Map<String, BlognonInfo> tidproLists = tidproTask.processTask();
         tidproRef.setValueAsync(tidproLists);
+
+
+
+        try {
+            System.out.println("wait for saving");
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
     }
 }

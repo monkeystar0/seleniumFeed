@@ -43,6 +43,7 @@ public class BlognoneTask {
         if (elements.size()>0){
             try {
                 for (WebElement e: elements){
+                    System.out.println(e.getAttribute("outerHTML"));
                     WebElement ee = e.findElement(By.className("content-title-box"));
 
                     System.out.println("ID:"+e.getAttribute("id").substring(5));
