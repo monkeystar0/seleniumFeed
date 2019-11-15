@@ -41,14 +41,17 @@ public class App {
         DatabaseReference blognonRef = ref.child("blognoneInfo");
         BlognoneTask blognoneTask = new BlognoneTask();
         Map<String, BlognonInfo> techLists = blognoneTask.processTask();
-        blognonRef.setValueAsync(techLists);
+        //blognonRef.setValueAsync(techLists);
+        DatabaseReference blognonRef2 = blognonRef.push();
+        blognonRef2.setValueAsync(techLists);
 
 
         DatabaseReference tidproRef = ref.child("tidpro");
         TidproTask tidproTask = new TidproTask();
         Map<String, BlognonInfo> tidproLists = tidproTask.processTask();
         tidproRef.setValueAsync(tidproLists);
-
+        DatabaseReference tidproRef2 = tidproRef.push();
+        tidproRef2.setValueAsync(tidproLists);
 
 
         try {

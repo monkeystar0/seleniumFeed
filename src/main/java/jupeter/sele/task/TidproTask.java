@@ -52,8 +52,8 @@ public class TidproTask {
 
                     //id
                     WebElement eId = e.findElement(By.id("featured-thumbnail"));
-                    System.out.println("ID:"+eId.getAttribute("href").substring(22));
-                    int id = Integer.parseInt(eId.getAttribute("href").substring(22));
+                    System.out.println("ID:"+eId.getAttribute("href").substring(23));
+                    int id = Integer.parseInt(eId.getAttribute("href").substring(23));
 
                     //detail
                     WebElement eDetail = e.findElement(By.className("post-content"));
